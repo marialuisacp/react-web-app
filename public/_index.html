@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Web site created using create-react-app"
+    />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <title>Be web App</title>
+    <script type="systemjs-importmap">
+      {
+        "imports": {
+          "@be-web-mf/template": "//localhost:8080/be-web-mf-template.js"
+        }
+      }
+    </script>
+    <template id="single-spa-layout">
+      <single-spa-router>
+        <nav class="topnav">
+          <application name="@be-web-mf/navbar" loader="topNav" error="topNav"></application>
+        </nav>
+        <div class="main-content mt-16">
+          <route path="template">
+            <application name="@be-web-mf/template"></application>
+          </route>
+          <route default>
+            <h1 class="flex flex-row justify-center p-16">
+              <p class="max-w-md">This example project shows independently built and deployed microfrontends that use React and single-spa. Each nav link above takes you to a different microfrontend.</p>
+            </h1>
+          </route>
+        </div>
+      </single-spa-router>
+    </template>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+      <div id="root">
+      </div>
+  </body>
+</html>

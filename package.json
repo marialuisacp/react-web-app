@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@loongwoo/tailwind": "^1.0.0",
+    "@pcmnac/single-spa-cycle": "^1.0.1",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
@@ -10,17 +12,29 @@
     "@types/node": "^16.18.96",
     "@types/react": "^18.2.78",
     "@types/react-dom": "^18.2.25",
+    "@types/systemjs": "^6.13.5",
+    "html-webpack-plugin": "^5.6.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
+    "request": "^2.79.0",
+    "single-spa": "^6.0.1",
+    "single-spa-layout": "^2.2.0",
     "typescript": "^4.9.5",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "webpack": "^5.42.0",
+    "webpack-cli": "^4.8.0",
+    "webpack-config-single-spa": "^5.3.1",
+    "webpack-dev-server": "^4.0.0",
+    "webpack-merge": "^5.10.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "webpack serve --port 9000 --env isLocal",
+    "start:standalone": "webpack serve --env standalone",
+    "build": "webpack --mode=production",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "eslint \"src/**/*.{js,jsx}\" --quiet"
   },
   "eslintConfig": {
     "extends": [
@@ -39,5 +53,11 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "prettier": "^3.2.5",
+    "webpack-cli": "^5.1.4"
   }
 }
